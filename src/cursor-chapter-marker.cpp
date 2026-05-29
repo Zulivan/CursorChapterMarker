@@ -346,12 +346,26 @@ static void OnSaveLoad(obs_data_t *save_data, bool saving, void *)
 	if (saving) {
 		OBSDataAutoRelease obj = obs_data_create();
 		settingsDialog->SaveSettings(obj);
+
+		OBSDataArrayAutoRelease pressArr = obs_hotkey_save(hotkeyPress);
+		obs_data_set_array(obj, "hotkey_press", pressArr);
+		OBSDataArrayAutoRelease releaseArr = obs_hotkey_save(hotkeyRelease);
+		obs_data_set_array(obj, "hotkey_release", releaseArr);
+
 		obs_data_set_obj(save_data, "cursor_chapter_marker", obj);
 	} else {
 		OBSDataAutoRelease obj =
 			obs_data_get_obj(save_data, "cursor_chapter_marker");
-		if (obj)
+		if (obj) {
 			settingsDialog->LoadSettings(obj);
+
+			OBSDataArrayAutoRelease pressArr =
+				obs_data_get_array(obj, "hotkey_press");
+			obs_hotkey_load(hotkeyPress, pressArr);
+			OBSDataArrayAutoRelease releaseArr =
+				obs_data_get_array(obj, "hotkey_release");
+			obs_hotkey_load(hotkeyRelease, releaseArr);
+		}
 	}
 }
 
