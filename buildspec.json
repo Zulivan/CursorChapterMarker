@@ -1,0 +1,25 @@
+{
+  "name": "cursor-chapter-marker",
+  "version": "1.0.0",
+  "author": "Juliano Ouvrard",
+  "dependencies": {
+    "obs-studio": {
+      "version": "30.2.2",
+      "repository": "https://github.com/obsproject/obs-studio"
+    },
+    "prebuilt": {
+      "version": "2024-05-08",
+      "baseUrl": "https://github.com/obsproject/obs-deps/releases/download/2024-05-08",
+      "hashes": {
+        "windows-x64": "obs-deps-2024-05-08-windows-x64.zip"
+      }
+    },
+    "qt6": {
+      "version": "2024-05-08",
+      "baseUrl": "https://github.com/obsproject/obs-deps/releases/download/2024-05-08",
+      "hashes": {
+        "windows-x64": "obs-deps-qt6-2024-05-08-windows-x64.zip"
+      }
+    }
+  }
+}

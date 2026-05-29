@@ -1,0 +1,55 @@
+# Build directories
+build/
+build-*/
+build_x64/
+out/
+_build/
+dist/
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps/
+.deps/
+
+# Compiled binaries and libraries
+*.dll
+*.so
+*.dylib
+*.lib
+*.a
+*.exp
+*.pdb
+*.ilk
+*.obj
+*.o
+
+# Visual Studio
+.vs/
+*.vcxproj.user
+*.suo
+*.sdf
+*.opensdf
+*.VC.db
+*.VC.opendb
+
+# VS Code
+.vscode/
+
+# Claude Code
+.claude/
+
+# CLion / JetBrains
+.idea/
+cmake-build-*/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
