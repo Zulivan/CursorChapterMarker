@@ -13,7 +13,7 @@
 #include <string>
 
 #define DEFAULT_PRESS_FORMAT   "+ Cursor X:%X Y:%Y"
-#define DEFAULT_RELEASE_FORMAT "- Cursor"
+#define DEFAULT_RELEASE_FORMAT "- Cursor X:%X Y:%Y"
 
 // Thread-safe format string cache read by hotkey callbacks without touching Qt.
 struct FormatCache {

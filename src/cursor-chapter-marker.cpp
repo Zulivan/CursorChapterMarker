@@ -333,7 +333,17 @@ static void OnHotkeyRelease(void *, obs_hotkey_id, obs_hotkey_t *, bool pressed)
 	if (!obs_frontend_recording_active())
 		return;
 
-	std::string marker = FormatMarker(g_formats.getRelease(), 0, 0);
+	MousePos raw = GetMousePos();
+
+	CaptureOrigin origin;
+	int cx = raw.x;
+	int cy = raw.y;
+	if (GetActiveCaptureOrigin(origin)) {
+		cx = raw.x - origin.x;
+		cy = raw.y - origin.y;
+	}
+
+	std::string marker = FormatMarker(g_formats.getRelease(), cx, cy);
 	obs_frontend_recording_add_chapter(marker.c_str());
 }
 
